@@ -8,6 +8,12 @@ function whoWon(computerPlay, userPlay) {   //checks who won
     if (computerPlay == "rock" && userPlay == "rock") {
         return ("Draw");
     }
+    else if (computerPlay == "scissors" && userPlay == "scissors") {
+        return ("Draw");
+    }
+    else if (computerPlay == "paper" && userPlay == "paper") {
+        return ("Draw");
+    }
     else if (computerPlay == "rock" && userPlay == "scissors") {
         return ("Computer won!!");
     }
@@ -20,20 +26,14 @@ function whoWon(computerPlay, userPlay) {   //checks who won
     else if (computerPlay == "paper" && userPlay == "rock") {
         return ("Computer won!!");
     }
-    else if (computerPlay == "paper" && userPlay == "paper") {
-        return ("Draw");
-    }
-    else if (computerPlay == "scissors" && userPlay == "scissors") {
-        return ("Draw");
-    }
     else if (computerPlay == "scissors" && userPlay == "paper") {
         return ("Computer won!!");
     }
-    else if (computerPlay == "scissors" && userPlay == "") {
+    else if (computerPlay == "scissors" && userPlay == "rock") {
         return ("Wow! You won!");
     }
     else {
-        return ("some error occurred!! Please play again!!");
+        return ("Oops! wrong input!!");
         playGame();  //if some error occurred user can play again
     }
 
@@ -46,8 +46,8 @@ function playGame() {  //plays game
     for (let i = 5; i >= 1; i--) {
         let computerTurn = computerPlays(possibleOutcomes);
         let playerTurn1 = prompt(`You have got ${i} turns left\nEnter rock, paper or scissors: `);
-        playerTurn = playerTurn1;
-        alert(whoWon(computerTurn, playerTurns));
+        let playerTurn = playerTurn1.toLocaleLowerCase();
+        alert(whoWon(computerTurn, playerTurn));
     }
 }
 
